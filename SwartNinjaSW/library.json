@@ -1,6 +1,6 @@
 {
   "name": "SwartNinjaSW",
-  "keywords": "",
+  "keywords": "switch",
   "description": "Basic arduino switch library.",
   "include": "SwartNinjaSW",
   "repository": {
