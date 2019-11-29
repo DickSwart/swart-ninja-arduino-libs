@@ -3,13 +3,11 @@
   "keywords": "",
   "description": "Basic arduino switch library.",
   "include": "SwartNinjaSW",
-  "repository":
-  {
+  "repository": {
     "type": "git",
     "url": "https://git@github.com:DickSwart/swart-ninja-arduino-libs.git"
   },
-  "authors":
-  [
+  "authors": [
     {
       "name": "Dick Swart",
       "email": "dick@swart.ninja",
@@ -17,7 +15,10 @@
       "maintainer": true
     }
   ],
-  "version": "1.0.0",
+  "version": "1.0",
   "frameworks": "arduino",
-  "platforms": "espressif8266"
+  "platforms": [
+    "atmelavr",
+    "espressif"
+  ]
 }
