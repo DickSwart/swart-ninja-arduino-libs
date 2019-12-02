@@ -1,8 +1,8 @@
 {
-  "name": "SwartNinjaSW",
-  "keywords": "switch",
-  "description": "Basic arduino switch library.",
-  "include": "SwartNinjaSW",
+  "name": "SwartNinjaPIR",
+  "keywords": "pir, motion, motion-sensor, pir-sensor, HC-SR501, swartninja",
+  "description": "Basic Arduino motion sensor library.",
+  "include": "SwartNinjaPIR",
   "repository": {
     "type": "git",
     "url": "https://git@github.com:DickSwart/swart-ninja-arduino-libs.git"

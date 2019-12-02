@@ -22,6 +22,7 @@ public:
   SwartNinjaSW(int);
   void setup(void);
   char* getState(void);
+  bool getRawState(void);
   bool setState(bool);
   int getPinNumber(void);
 

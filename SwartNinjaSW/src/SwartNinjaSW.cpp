@@ -36,6 +36,11 @@ char * SwartNinjaSW::getState(void)
   return strdup((this->_currentState) ? "ON" : "OFF");
 }
 
+bool SwartNinjaSW::getRawState(void)
+{
+  return this->_currentState;
+}
+
 bool SwartNinjaSW::setState(bool state)
 {
   SNSW_PRINT("[SwartNinjaSW]: NEW State: ");

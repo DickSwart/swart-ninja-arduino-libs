@@ -1,0 +1,25 @@
+{
+  "name": "SwartNinjaDHT",
+  "keywords": "dht22, temperature-sensor, humidity-sensor, swartninja",
+  "description": "Basic Arduino wrapper library for the popular DHT sensor.",
+  "include": "SwartNinjaDHT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:DickSwart/swart-ninja-arduino-libs.git"
+  },
+  "authors": [
+    {
+      "name": "Dick Swart",
+      "email": "dick@swart.ninja",
+      "url": "https://swart.ninja",
+      "maintainer": true
+    }
+  ],
+  "version": "1.0",
+  "frameworks": "arduino",
+  "platforms": "espressif",
+  "dependencies": {
+    "DHT sensor library": "^1.3.7",
+    "Adafruit Unified Sensor": "^1.0.3"
+  }
+}

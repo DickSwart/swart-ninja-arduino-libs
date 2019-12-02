@@ -1,8 +1,8 @@
 {
-  "name": "SwartNinjaSW",
-  "keywords": "switch",
-  "description": "Basic arduino switch library.",
-  "include": "SwartNinjaSW",
+  "name": "SwartNinjaLDR",
+  "keywords": "ldr, lux-sensor, luminance-sensor, photoresistor, light-dependent, swartninja",
+  "description": "Basic Arduino luminance sensor library.",
+  "include": "SwartNinjaLDR",
   "repository": {
     "type": "git",
     "url": "https://git@github.com:DickSwart/swart-ninja-arduino-libs.git"

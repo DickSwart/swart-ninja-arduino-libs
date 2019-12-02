@@ -1,14 +1,14 @@
 //include the declaration for this class
-#include "SwartNinaRSW.h"
+#include "SwartNinjaRSW.h"
 
 /*!
- *  @brief  Instantiates a new SwartNinaRSW class
+ *  @brief  Instantiates a new SwartNinjaRSW class
  *  @param  pin
  *          pin number that sensor is connected
  *  @param  callback
  *          callback method
  */
-SwartNinaRSW::SwartNinaRSW(int pin, void (*callback)(char *, int , const char *), int pin_input_type)
+SwartNinjaRSW::SwartNinjaRSW(int pin, void (*callback)(char *, int , const char *), int pin_input_type)
 {
   this->_pin = pin;
   this->_pin_input_type = pin_input_type;
@@ -20,12 +20,12 @@ SwartNinaRSW::SwartNinaRSW(int pin, void (*callback)(char *, int , const char *)
 ///////////////////////////////////////////////////////////////////////////
 
 
-void SwartNinaRSW::setup(void)
+void SwartNinjaRSW::setup(void)
 {
-  SNRS_PRINTLN("[SwartNinaRSW]: Main setup");
+  SNRS_PRINTLN("[SwartNinjaRSW]: Main setup");
   
   pinMode(this->_pin, this->_pin_input_type);
-  SNRS_PRINT("[SwartNinaRSW]: Pin: ");
+  SNRS_PRINT("[SwartNinjaRSW]: Pin: ");
   SNRS_PRINTLN(this->_pin);
 
   // set to the oposite of actual reading to force callback function to trigger.
@@ -33,7 +33,7 @@ void SwartNinaRSW::setup(void)
 }
 
 //Setup the reed switch
-void SwartNinaRSW::loop(void)
+void SwartNinjaRSW::loop(void)
 {
 
   static unsigned long lastSensorCheck = 0;
@@ -48,10 +48,10 @@ void SwartNinaRSW::loop(void)
     {
       this->_currentState = newStatus;
 
-      char *value = strdup((newStatus) ? "OFF" : "ON");
+      char *value = strdup((newStatus) ? "ON" : "OFF");
       this->_callback(value, this->getPinNumber(), SN_RSW_SENSOR_EVT);
 
-      SNRS_PRINT("[SwartNinaRSW]: Event ");
+      SNRS_PRINT("[SwartNinjaRSW]: Event ");
       SNRS_PRINT(SN_RSW_SENSOR_EVT);
       SNRS_PRINT(" ( PIN: ");
       SNRS_PRINT(this->getPinNumber());
@@ -62,12 +62,12 @@ void SwartNinaRSW::loop(void)
   }
 }
 
-char* SwartNinaRSW::getCurrentState(void)
+char* SwartNinjaRSW::getCurrentState(void)
 {
-  return strdup((this->_currentState) ? "OFF" : "ON");
+  return strdup((this->_currentState) ? "ON" : "OFF");
 }
 
-int SwartNinaRSW::getPinNumber(void)
+int SwartNinjaRSW::getPinNumber(void)
 {
   return this->_pin;
 }
@@ -76,7 +76,7 @@ int SwartNinaRSW::getPinNumber(void)
 //  Private methods
 ///////////////////////////////////////////////////////////////////////////
 
-bool SwartNinaRSW::_readState(void)
+bool SwartNinjaRSW::_readState(void)
 {
   return digitalRead(this->_pin);
 }

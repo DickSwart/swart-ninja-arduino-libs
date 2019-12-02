@@ -1,5 +1,5 @@
-#ifndef SwartNinaRSW_H
-#define SwartNinaRSW_H
+#ifndef SwartNinjaRSW_H
+#define SwartNinjaRSW_H
 
 #include "Arduino.h"
 
@@ -17,10 +17,10 @@
 #define SNRS_MEASURE_INTERVAL 500       // < min interval value [ms]
 #define SN_RSW_SENSOR_EVT "SN_RSW_SENSOR_EVT"
 
-class SwartNinaRSW
+class SwartNinjaRSW
 {
 public:
-  SwartNinaRSW(int pin, void (*callback)(char *value, int pin, const char *event), int pin_input_type = INPUT_PULLUP);
+  SwartNinjaRSW(int pin, void (*callback)(char *value, int pin, const char *event), int pin_input_type = INPUT_PULLUP);
   void setup(void);
   void loop(void);
   char* getCurrentState(void);

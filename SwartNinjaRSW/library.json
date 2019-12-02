@@ -1,11 +1,10 @@
 {
-  "name": "SwartNinjaSW",
-  "keywords": "switch",
-  "description": "Basic arduino switch library.",
-  "include": "SwartNinjaSW",
+  "name": "SwartNinjaRSW",
+  "keywords": "reed-switch, swartninja",
+  "description": "Basic arduino reed-switch library.",
   "repository": {
     "type": "git",
-    "url": "https://git@github.com:DickSwart/swart-ninja-arduino-libs.git"
+    "url": "https://git@github.com:DickSwart/swart-ninja-rsw.git"
   },
   "authors": [
     {
@@ -17,5 +16,8 @@
   ],
   "version": "1.0",
   "frameworks": "arduino",
-  "platforms": "espressif"
+  "platforms": [
+    "atmelavr",
+    "espressif"
+  ]
 }
