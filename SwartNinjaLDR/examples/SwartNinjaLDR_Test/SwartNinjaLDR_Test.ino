@@ -1,0 +1,42 @@
+#include <Arduino.h>
+#include <SwartNinjaLDR.h>
+
+#define PIR_SENSOR_PIN 14 // D5 on nodemcu
+
+///////////////////////////////////////////////////////////////////////////
+//  SwartNinjaLDR
+///////////////////////////////////////////////////////////////////////////
+// function declaration
+void handleSwartNinjaSensorUpdate(char *value, int pin, const char *event);
+// initialize the SwartNinjaLDR object
+SwartNinjaLDR luxSensor(PIR_SENSOR_PIN, handleSwartNinjaSensorUpdate);
+
+
+///////////////////////////////////////////////////////////////////////////
+//  MAIN SETUP AND LOOP
+///////////////////////////////////////////////////////////////////////////
+void setup()
+{
+  Serial.begin(115200);
+
+  // LDR sensor setup
+  luxSensor.setup();
+}
+
+void loop()
+{
+  // LDR sensor loop
+  luxSensor.loop();
+}
+
+///////////////////////////////////////////////////////////////////////////
+//  SwartNinjaLDR
+///////////////////////////////////////////////////////////////////////////
+void handleSwartNinjaSensorUpdate(char *value, int pin, const char *event)
+{
+  if (event == SN_LDR_SENSOR_EVT)
+  {
+    Serial.print("New value:");
+    Serial.println(value);
+  }
+}

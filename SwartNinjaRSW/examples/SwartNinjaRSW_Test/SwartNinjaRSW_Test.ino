@@ -1,0 +1,42 @@
+#include <Arduino.h>
+#include <SwartNinjaRSW.h>
+
+#define DOOR_PIN 4 // D2 on nodemcu
+
+///////////////////////////////////////////////////////////////////////////
+//  SwartNinjaRSW
+///////////////////////////////////////////////////////////////////////////
+// function declaration
+void handleSwartNinjaSensorUpdate(char *value, int pin, const char *event);
+// initialize the SwartNinjaRSW object
+SwartNinjaRSW doorSensor(DOOR_PIN, handleSwartNinjaSensorUpdate);
+
+
+///////////////////////////////////////////////////////////////////////////
+//  MAIN SETUP AND LOOP
+///////////////////////////////////////////////////////////////////////////
+void setup()
+{
+  Serial.begin(115200);
+
+  // reed switch setup
+  doorSensor.setup();
+}
+
+void loop()
+{
+  // reed switch loop
+  doorSensor.loop();
+}
+
+///////////////////////////////////////////////////////////////////////////
+//  SwartNinjaRSW
+///////////////////////////////////////////////////////////////////////////
+void handleSwartNinjaSensorUpdate(char *value, int pin, const char *event)
+{
+  if (event == SN_RSW_SENSOR_EVT)
+  {
+    Serial.print("New value:");
+    Serial.println(value);
+  }
+}
