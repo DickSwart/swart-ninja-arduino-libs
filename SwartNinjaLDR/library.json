@@ -5,7 +5,7 @@
   "include": "SwartNinjaLDR",
   "repository": {
     "type": "git",
-    "url": "https://git@github.com:DickSwart/swart-ninja-arduino-libs.git"
+    "url": "https://github.com/DickSwart/swart-ninja-arduino-libs.git"
   },
   "authors": [
     {
@@ -17,5 +17,5 @@
   ],
   "version": "1.0",
   "frameworks": "arduino",
-  "platforms": "espressif"
+  "platforms": "espressif8266"
 }
