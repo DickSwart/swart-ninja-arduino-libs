@@ -1,3 +1,4 @@
+#pragma once
 #ifndef SwartNinjaRSW_H
 #define SwartNinjaRSW_H
 
@@ -20,7 +21,6 @@
 class SwartNinjaRSW
 {
 public:
-  SwartNinjaRSW(int pin, void (*callback)(char *value, int pin, const char *event), int pin_input_type = INPUT_PULLUP, bool force_initial_callback = true);
   SwartNinjaRSW(int pin, void (*callback)(char *value, int pin, const char *event), bool force_initial_callback = true, int pin_input_type = INPUT_PULLUP);
   void setup(void);
   void loop(void);

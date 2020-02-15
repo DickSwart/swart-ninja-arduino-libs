@@ -7,25 +7,6 @@
  *          pin number that sensor is connected
  *  @param  callback
  *          callback method
- *  @param  pin_input_type
- *          pin input type
- *  @param  force_initial_callback
- *          force callback function to trigger on first loop
- */
-SwartNinjaRSW::SwartNinjaRSW(int pin, void (*callback)(char *, int, const char *), int pin_input_type, bool force_initial_callback)
-{
-  this->_pin = pin;
-  this->_pin_input_type = pin_input_type;
-  this->_callback = callback;
-  this->_force_initial_callback = force_initial_callback;
-}
-
-/*!
- *  @brief  Instantiates a new SwartNinjaRSW class
- *  @param  pin
- *          pin number that sensor is connected
- *  @param  callback
- *          callback method
  *  @param  force_initial_callback
  *          force callback function to trigger on first loop
  *  @param  pin_input_type
