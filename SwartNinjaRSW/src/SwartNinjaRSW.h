@@ -24,6 +24,7 @@ public:
   void setup(void);
   void loop(void);
   char* getCurrentState(void);
+  bool getCurrentRawState(void);
   int getPinNumber(void);
 
 private:

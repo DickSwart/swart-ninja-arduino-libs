@@ -23,7 +23,7 @@ SwartNinjaRSW::SwartNinjaRSW(int pin, void (*callback)(char *, int , const char 
 void SwartNinjaRSW::setup(void)
 {
   SNRS_PRINTLN("[SwartNinjaRSW]: Main setup");
-  
+
   pinMode(this->_pin, this->_pin_input_type);
   SNRS_PRINT("[SwartNinjaRSW]: Pin: ");
   SNRS_PRINTLN(this->_pin);
@@ -65,6 +65,11 @@ void SwartNinjaRSW::loop(void)
 char* SwartNinjaRSW::getCurrentState(void)
 {
   return strdup((this->_currentState) ? "ON" : "OFF");
+}
+
+bool SwartNinjaRSW::getCurrentRawState(void)
+{
+  return this->_currentState;
 }
 
 int SwartNinjaRSW::getPinNumber(void)
