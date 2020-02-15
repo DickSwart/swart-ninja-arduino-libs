@@ -7,18 +7,41 @@
  *          pin number that sensor is connected
  *  @param  callback
  *          callback method
+ *  @param  pin_input_type
+ *          pin input type
+ *  @param  force_initial_callback
+ *          force callback function to trigger on first loop
  */
-SwartNinjaRSW::SwartNinjaRSW(int pin, void (*callback)(char *, int , const char *), int pin_input_type)
+SwartNinjaRSW::SwartNinjaRSW(int pin, void (*callback)(char *, int, const char *), int pin_input_type, bool force_initial_callback)
 {
   this->_pin = pin;
   this->_pin_input_type = pin_input_type;
   this->_callback = callback;
+  this->_force_initial_callback = force_initial_callback;
+}
+
+/*!
+ *  @brief  Instantiates a new SwartNinjaRSW class
+ *  @param  pin
+ *          pin number that sensor is connected
+ *  @param  callback
+ *          callback method
+ *  @param  force_initial_callback
+ *          force callback function to trigger on first loop
+ *  @param  pin_input_type
+ *          pin input type
+ */
+SwartNinjaRSW::SwartNinjaRSW(int pin, void (*callback)(char *, int, const char *), bool force_initial_callback, int pin_input_type)
+{
+  this->_pin = pin;
+  this->_pin_input_type = pin_input_type;
+  this->_callback = callback;
+  this->_force_initial_callback = force_initial_callback;
 }
 
 ///////////////////////////////////////////////////////////////////////////
 //  Public methods
 ///////////////////////////////////////////////////////////////////////////
-
 
 void SwartNinjaRSW::setup(void)
 {
@@ -28,8 +51,13 @@ void SwartNinjaRSW::setup(void)
   SNRS_PRINT("[SwartNinjaRSW]: Pin: ");
   SNRS_PRINTLN(this->_pin);
 
-  // set to the oposite of actual reading to force callback function to trigger.
-  this->_currentState = !this->_readState();
+  // check if force callback on first loop is required.
+  if (this->_force_initial_callback) {
+    this->_currentState = !this->_readState();
+  } else {
+    this->_currentState = this->_readState();
+  }
+
 }
 
 //Setup the reed switch
@@ -62,7 +90,7 @@ void SwartNinjaRSW::loop(void)
   }
 }
 
-char* SwartNinjaRSW::getCurrentState(void)
+char *SwartNinjaRSW::getCurrentState(void)
 {
   return strdup((this->_currentState) ? "ON" : "OFF");
 }

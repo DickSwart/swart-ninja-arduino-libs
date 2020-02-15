@@ -14,16 +14,17 @@
   #define SNRS_PRINTLN(...) {} /**< Debug Print Line Placeholder if Debug is disabled */
 #endif
 
-#define SNRS_MEASURE_INTERVAL 500       // < min interval value [ms]
+#define SNRS_MEASURE_INTERVAL 500 // < min interval value [ms]
 #define SN_RSW_SENSOR_EVT "SN_RSW_SENSOR_EVT"
 
 class SwartNinjaRSW
 {
 public:
-  SwartNinjaRSW(int pin, void (*callback)(char *value, int pin, const char *event), int pin_input_type = INPUT_PULLUP);
+  SwartNinjaRSW(int pin, void (*callback)(char *value, int pin, const char *event), int pin_input_type = INPUT_PULLUP, bool force_initial_callback = true);
+  SwartNinjaRSW(int pin, void (*callback)(char *value, int pin, const char *event), bool force_initial_callback = true, int pin_input_type = INPUT_PULLUP);
   void setup(void);
   void loop(void);
-  char* getCurrentState(void);
+  char *getCurrentState(void);
   bool getCurrentRawState(void);
   int getPinNumber(void);
 
@@ -31,7 +32,8 @@ private:
   int _pin;
   int _pin_input_type;
   bool _currentState;
-  void (*_callback)(char *, int , const char *);
+  bool _force_initial_callback;
+  void (*_callback)(char *, int, const char *);
   bool _readState(void);
 };
 
