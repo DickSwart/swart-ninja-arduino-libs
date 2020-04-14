@@ -24,10 +24,8 @@ void SwartNinjaPIR::setup(void)
   attachInterrupt(digitalPinToInterrupt(this->_pin), motionSensorISR, CHANGE);
   // set to the oposite of actual reading to force callback function to trigger.
   this->_setMotionState(!this->_readMotionState());
-  
+
   SNPIR_PRINTLN("[SwartNinjaPIR]: Main setup");
-  // SNPIR_PRINT("[SwartNinjaPIR]: Initial Value - ");
-  // SNPIR_PRINTLN(this->getState());
 }
 
 void SwartNinjaPIR::loop(void)
@@ -35,7 +33,7 @@ void SwartNinjaPIR::loop(void)
   if (SwartNinjaPIRChanged)
   {
     SNPIR_PRINTLN("[SwartNinjaPIR]: SwartNinjaPIRChanged");
-    
+
     bool currentState = _readMotionState();
     if (currentState != this->_currentState)
     {
@@ -62,6 +60,17 @@ void SwartNinjaPIR::loop(void)
 int SwartNinjaPIR::getPinNumber(void)
 {
   return this->_pin;
+}
+
+char *SwartNinjaPIR::getState(void)
+{
+  char *value = strdup((this->getStateRaw()) ? "ON" : "OFF");
+  return value;
+}
+
+bool SwartNinjaPIR::getStateRaw(void)
+{
+  return this->_currentState;
 }
 
 ///////////////////////////////////////////////////////////////////////////

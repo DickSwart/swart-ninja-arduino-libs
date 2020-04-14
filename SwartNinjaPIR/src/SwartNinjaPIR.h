@@ -23,6 +23,7 @@ public:
   void setup(void);
   void loop(void);
   char * getState(void);
+  bool getStateRaw(void);
   int getPinNumber(void);
 
 private:
