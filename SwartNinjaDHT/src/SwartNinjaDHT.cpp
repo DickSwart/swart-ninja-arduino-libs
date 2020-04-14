@@ -42,8 +42,7 @@ void SwartNinjaDHT::loop(void)
     if (_checkBoundSensor(currentTemperature, this->_temperature, DHT_TEMPERATURE_OFFSET_VALUE))
     {
       this->_temperature = currentTemperature;
-      dtostrf(currentTemperature, 2, 2, PAYLOAD);
-      this->_callback(PAYLOAD, this->getPinNumber(), SN_DHT_TEMPERATURE_EVT);
+      this->_callback(this->getTemperatureState(), this->getPinNumber(), SN_DHT_TEMPERATURE_EVT);
       SNDHT_PRINT("[SwartNinjaDHT]: Temperature = ");
       SNDHT_PRINTLN(this->_temperature);
     }
@@ -57,8 +56,7 @@ void SwartNinjaDHT::loop(void)
     if (_checkBoundSensor(currentHumidity, this->_humidity, DHT_HUMIDITY_OFFSET_VALUE))
     {
       this->_humidity = currentHumidity;
-      dtostrf(currentHumidity, 2, 2, PAYLOAD);
-      this->_callback(PAYLOAD, this->getPinNumber(), SN_DHT_HUMIDITY_EVT);
+      this->_callback(this->getHumidityState(), this->getPinNumber(), SN_DHT_HUMIDITY_EVT);
       SNDHT_PRINT("[SwartNinjaDHT]: Humidity = ");
       SNDHT_PRINTLN(this->_humidity);
     }
@@ -72,12 +70,27 @@ void SwartNinjaDHT::loop(void)
     if (_checkBoundSensor(currentRealFeel, this->_realFeel, DHT_TEMPERATURE_OFFSET_VALUE))
     {
       this->_realFeel = currentRealFeel;
-      dtostrf(currentRealFeel, 2, 2, PAYLOAD);
-      this->_callback(PAYLOAD, this->getPinNumber(), SN_DHT_REALFEEL_EVT);
+      this->_callback(this->getRealFeelState(), this->getPinNumber(), SN_DHT_REALFEEL_EVT);
       SNDHT_PRINT("[SwartNinjaDHT]: Real Feel = ");
       SNDHT_PRINTLN(this->_realFeel);
     }
   }
+}
+
+char *SwartNinjaDHT::getTemperatureState(void)
+{
+  dtostrf(this->getRealFeel(), 2, 2, PAYLOAD);
+  return PAYLOAD;
+}
+char *SwartNinjaDHT::getHumidityState(void)
+{
+  dtostrf(this->getHumidity(), 2, 2, PAYLOAD);
+  return PAYLOAD;
+}
+char *SwartNinjaDHT::getRealFeelState(void)
+{
+  dtostrf(this->getRealFeel(), 2, 2, PAYLOAD);
+  return PAYLOAD;
 }
 
 float SwartNinjaDHT::getTemperature(void)

@@ -15,12 +15,12 @@
       "maintainer": true
     }
   ],
-  "version": "1.0.1",
+  "version": "1.0.2",
   "frameworks": "arduino",
   "platforms": "espressif8266",
   "dependencies": {
     "DHT sensor library": "^1.3.7",
     "Adafruit Unified Sensor": "^1.0.3",
-    "Wire":"*"
+    "Wire": "*"
   }
 }
