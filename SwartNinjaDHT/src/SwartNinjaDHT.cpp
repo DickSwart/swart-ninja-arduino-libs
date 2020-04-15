@@ -79,17 +79,17 @@ void SwartNinjaDHT::loop(void)
 
 char *SwartNinjaDHT::getTemperatureState(void)
 {
-  dtostrf(this->_readTemperature(), 2, 2, PAYLOAD);
+  dtostrf(this->getTemperature(), 2, 2, PAYLOAD);
   return PAYLOAD;
 }
 char *SwartNinjaDHT::getHumidityState(void)
 {
-  dtostrf(this->_readHumidity(), 2, 2, PAYLOAD);
+  dtostrf(this->getHumidity(), 2, 2, PAYLOAD);
   return PAYLOAD;
 }
 char *SwartNinjaDHT::getRealFeelState(void)
 {
-  dtostrf(this->_readRealFeel(), 2, 2, PAYLOAD);
+  dtostrf(this->getRealFeel(), 2, 2, PAYLOAD);
   return PAYLOAD;
 }
 
