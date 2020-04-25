@@ -1,0 +1,22 @@
+{
+  "name": "SwartNinjaSMD",
+  "keywords": "stepper,TB6600,steppermotor",
+  "description": "Stepper motor driver, currently supporting TB6600",
+  "include": "SwartNinjaSMD",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DickSwart/swart-ninja-arduino-libs.git"
+  },
+  "authors": [
+    {
+      "name": "Dick Swart",
+      "email": "dick@swart.ninja",
+      "url": "https://swart.ninja",
+      "maintainer": true
+    }
+  ],
+  "version": "1.0.0",
+  "frameworks": "arduino",
+  "platforms": "espressif8266",
+  "dependencies": []
+}
